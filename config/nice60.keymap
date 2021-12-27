@@ -32,7 +32,7 @@
 
 &mt {
     flavor = "hold-preferred";
-}
+};
 
 / {
     keymap {
