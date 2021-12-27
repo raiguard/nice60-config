@@ -30,6 +30,10 @@
     ;
 };
 
+&mt {
+    flavor = "hold-preferred";
+}
+
 / {
     keymap {
         compatible = "zmk,keymap";
