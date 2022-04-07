@@ -17,8 +17,22 @@
 #define DEFAULT 0
 #define GAME 1
 #define RAISE 2
+#define TECK_DEFAULT 3
+#define TECK_RAISE 4
 
 / {
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -45,12 +59,35 @@
 
         raise_layer {
             bindings = <
-&tog GAME &kp F1       &kp F2       &kp F3       &kp F4       &kp F5     &kp F6     &kp F7       &kp F8       &kp F9      &kp F10   &kp F11   &kp F12 &trans
-&trans    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT  &kp C_PP  &kp PSCRN &kp DEL &trans
-&trans    &out OUT_BLE &out OUT_USB &trans       &trans       &trans     &kp LEFT   &kp DOWN  &kp UP    &kp RIGHT &trans  &trans    &reset
-&trans    &trans       &trans       &trans       &trans       &trans     &kp HOME   &kp PG_DN &kp PG_UP &kp END   &trans  &bootloader
-&trans    &trans       &trans                                 &trans                                    &trans    &trans  &trans    &rgb_ug RGB_TOG
+&tog GAME         &kp F1       &kp F2       &kp F3       &kp F4       &kp F5     &kp F6     &kp F7       &kp F8       &kp F9      &kp F10   &kp F11     &kp F12 &trans
+&tog TECK_DEFAULT &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT  &kp C_PP  &kp PSCRN   &kp DEL &trans
+&trans            &out OUT_BLE &out OUT_USB &trans       &trans       &trans     &kp LEFT   &kp DOWN     &kp UP       &kp RIGHT   &trans    &trans      &reset
+&trans            &trans       &trans       &trans       &trans       &trans     &kp HOME   &kp PG_DN    &kp PG_UP    &kp END     &trans    &bootloader
+&trans            &trans       &trans                                 &trans                                          &trans      &trans    &trans      &rgb_ug RGB_TOG
             >;
         };
+
+        // Messing with layouts for my future Technikable
+
+        teck_default_layer {
+            bindings = <
+&none   &none        &none        &none        &none        &none      &none      &none        &none        &none       &none         &none       &none   &none
+&kp TAB &kp Q        &kp W        &kp E        &kp R        &kp T      &kp Y      &kp U        &kp I        &kp O       &kp P         &kp BSPC    &none   &none
+&kp ESC &hm LGUI A   &hm LALT S   &hm LCTRL D  &hm LSHFT F  &kp G      &kp H      &hm RSHFT J  &hm RCTRL K  &hm RALT L  &hm RGUI SEMI &kp SQT     &none
+&none   &kp Z        &kp X        &kp C        &kp V        &kp B      &kp N      &kp M        &kp COMMA    &kp DOT     &kp FSLH      &kp RET
+&none   &none        &mo TECK_RAISE                         &kp SPACE                                       &mo RAISE   &none         &none       &none
+            >;
+        };
+
+        teck_raise_layer {
+            bindings = <
+&none     &none        &none        &none        &none        &none      &none      &none        &none        &none       &none         &none       &none   &none
+&kp GRAVE &kp N1       &kp N2       &kp N3       &kp N4       &kp N5     &kp N6     &kp N7       &kp N8       &kp N9      &kp N0        &kp BSPC    &none   &none
+&kp DEL   &kp F1       &kp F2       &kp F3       &kp F4       &kp F5     &kp F6     &kp MINUS    &kp EQUAL    &kp LBKT    &kp RBKT      &kp BSLH    &none
+&none     &kp F7       &kp F8       &kp F9       &kp F10      &kp F11    &kp F12    &none        &none        &none       &none         &none
+&none     &none        &none                                  &none                                           &none       &none         &none       &none
+            >;
+        };
+
     };
 };
