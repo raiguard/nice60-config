@@ -75,17 +75,17 @@
 &kp TAB &kp Q        &kp W        &kp E        &kp R        &kp T      &kp Y      &kp U        &kp I        &kp O       &kp P         &kp BSPC    &none   &none
 &kp ESC &hm LGUI A   &hm LALT S   &hm LCTRL D  &hm LSHFT F  &kp G      &kp H      &hm RSHFT J  &hm RCTRL K  &hm RALT L  &hm RGUI SEMI &kp SQT     &none
 &none   &kp Z        &kp X        &kp C        &kp V        &kp B      &kp N      &kp M        &kp COMMA    &kp DOT     &kp FSLH      &kp RET
-&none   &none        &mo TECK_RAISE                         &kp SPACE                                       &mo RAISE   &none         &none       &none
+&none   &none        &none                                  &lt TECK_RAISE SPACE                                        &none       &none         &none       &none
             >;
         };
 
         teck_raise_layer {
             bindings = <
-&none     &none        &none        &none        &none        &none      &none      &none        &none        &none       &none         &none       &none   &none
-&kp GRAVE &kp N1       &kp N2       &kp N3       &kp N4       &kp N5     &kp N6     &kp N7       &kp N8       &kp N9      &kp N0        &kp BSPC    &none   &none
-&kp DEL   &kp F1       &kp F2       &kp F3       &kp F4       &kp F5     &kp F6     &kp MINUS    &kp EQUAL    &kp LBKT    &kp RBKT      &kp BSLH    &none
-&none     &kp F7       &kp F8       &kp F9       &kp F10      &kp F11    &kp F12    &none        &none        &none       &none         &none
-&none     &none        &none                                  &none                                           &none       &none         &none       &none
+&tog TECK_DEFAULT &none        &none        &none        &none        &none      &none      &none           &none           &none         &none         &none       &none   &none
+&kp GRAVE         &kp N1       &kp N2       &kp N3       &kp N4       &kp N5     &kp N6     &kp N7          &kp N8          &kp N9        &kp N0        &kp BSPC    &none   &none
+&kp DEL           &hm LGUI F1  &hm LALT F2  &hm LCTRL F3 &hm LSHFT F4 &kp F5     &kp F6     &hm RSHFT MINUS &hm RCTRL EQUAL &hm RALT LBKT &hm RGUI RBKT &kp BSLH    &none
+&none             &kp F7       &kp F8       &kp F9       &kp F10      &kp F11    &kp F12    &none           &none           &none         &none         &none
+&none             &none        &none                                  &none                                                 &none         &none         &none       &none
             >;
         };
 
